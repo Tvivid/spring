@@ -2,9 +2,12 @@ package hellong.core.beanfind;
 
 import hellong.core.AppConfig;
 import hellong.core.discount.DiscountPolicy;
+import hellong.core.member.MemberRepository;
+import hellong.core.member.MemoryMemberRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 public class ApplictionContextSameBeanFindTest {
@@ -19,7 +22,15 @@ public class ApplictionContextSameBeanFindTest {
 
     @Configuration
     static class SameBeanConfig{
-        
+
+        @Bean
+        public MemberRepository memberRepository1(){
+            return new MemoryMemberRepository();
+        }
+        @Bean
+        public MemberRepository memberRepository2(){
+            return new MemoryMemberRepository();
+        }
     }
 
 
