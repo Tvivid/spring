@@ -2,6 +2,7 @@ package hellong.core.discount;
 
 import hellong.core.member.Grade;
 import hellong.core.member.Member;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
