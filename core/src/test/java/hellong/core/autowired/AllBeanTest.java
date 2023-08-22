@@ -21,7 +21,7 @@ public class AllBeanTest {
     void findAllBean(){
         ApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfig.class, DiscountPolicy.class);
 
-        DisocuntService discountService = ac.getBean(DisocuntService.class);
+        DiscountService discountService = ac.getBean(DiscountService.class);
 
         Member member = new Member(1L, "userA", Grade.VIP);
         int discountPrice = discountService.discount(member, 10000, "fixDiscountPolicy");
@@ -34,12 +34,12 @@ public class AllBeanTest {
 
     }
 
-    static class DisocuntService{
+    static class DiscountService{
         private final Map<String, DiscountPolicy> policyMap;
         private final List<DiscountPolicy> policies;
 
         @Autowired
-        public DisocuntService(Map<String, DiscountPolicy> policyMap, List<DiscountPolicy> policies) {
+        public DiscountService(Map<String, DiscountPolicy> policyMap, List<DiscountPolicy> policies) {
             this.policyMap = policyMap;
             this.policies = policies;
             System.out.println("policyMap = " + policyMap);
@@ -48,7 +48,7 @@ public class AllBeanTest {
 
         public int discount(Member member, int price, String discountCode) {
             DiscountPolicy discountPolicy = policyMap.get(discountCode);
-            return discountPolicy.discount(member, price)
+            return discountPolicy.discount(member, price);
         }
     }
 
