@@ -4,11 +4,10 @@ import hellong.core.AutoAppConfig;
 import hellong.core.member.MemberRepository;
 import hellong.core.member.MemberService;
 import hellong.core.order.OrderServiceImpl;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class AutoAppConfigTest {
 
