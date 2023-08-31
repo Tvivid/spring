@@ -50,7 +50,7 @@ public class SingletonWithPrototypeTest1 {
 
 
         public int logic(){
-            PrototypeBean prototypeBean = prototypeBeanProvider.get(); 
+            PrototypeBean prototypeBean = prototypeBeanProvider.get();
             prototypeBean.addCount();
             int count = prototypeBean.getCount();
             return count;
